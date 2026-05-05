@@ -52,7 +52,7 @@ following syntax:
 ```
 For example, calling the FrameBuffer Present function we would write:
 
-```
+```c
 FrameBuffer::Present();
 ```
 _Defining static class variables_
@@ -63,10 +63,11 @@ which follow the same access rules (private/public/protected) as regular classes
 classes, the static member variables must be _defined_ in a compiled file (i.e. a cpp file). This is why at the
 top of FrameBuffer.cpp, you will see the FrameBuffer variables defined as so:
 
+```c
 u8 * FrameBuffer::frameBuffer = NULL;
 u32 FrameBuffer::frameBufferWidth = 0;
 u32 FrameBuffer::frameBufferHeight = 0;
-
+```
 It’s good practice to initialize the variables to default values.
 
 The Present function
@@ -99,27 +100,27 @@ Implement the following function that will clear the frame buffer with a checker
 
 _Setup_
 
-```
+```c
 Add the following declaration in the FrameBuffer class in FrameBuffer.h
 ```
-```
+```c
 static void ClearCheckerboard(u32 colors[2], u32 size);
 ```
-```
+```c
 Add the corresponding function definition in FrameBuffer.cpp
 ```
-```
+```c
 void FrameBuffer::ClearCheckerboard(u32 colors[2], u32 size)
 ```
 _Parameters_
 
-```
+```c
 The function takes 2 parameters:
 ```
-```
+```c
 u32 colors[2]: the two colors to use in the checkerboard pattern.
 ```
-```
+```c
 u32 size: the size of each cell in the board.
 ```
 _Test yourself_
@@ -135,11 +136,12 @@ u32 colors[] = { 0xFFFFFFFF, 0xFF000000 };
 FrameBuffer::ClearCheckerboard(colors, 16);
 
 
-```
+```c
 // Send content of frame buffer to
 FrameBuffer::Present();
 ```
-```
+
+```c
 // Debug
 SaveFrameBuffer();
 }
@@ -161,14 +163,15 @@ true. YOU WILL NEED TO FREE THE PIXEL MEMORY AFTER COPYING IT.
 
 _Setup_
 
-```
 Add the following declaration in the FrameBuffer class in FrameBuffer.h
+
+```c
 static void LoadFromImageFile (const char* filename);
 ```
-```
+
 Add the corresponding function in FrameBuffer.cpp. Use this template as a starting point:
-```
-```
+
+```c
 void FrameBuffer::LoadFromImageFile(const char* filename)
 {
 // load the file using the alpha engine
@@ -178,7 +181,8 @@ if (AEGfxLoadImagePNG(filename, imgPixels, imgWidth, imgHeight))
 {
 // TODO: copy the data to the framebuffer
 ```
-```
+
+```c
 // cleanup
 delete[] imgPixels;
 }
@@ -188,9 +192,6 @@ _Hints:_
 
 It is highly likely that the picture you load doesn’t have the same dimensions as the framebuffer. In this
 case, you have to be careful not to go out of bounds when copying the image pixels into the frame buffer.
-
-
-
 
 Code Challenge 3 : Combination of Challenge 1 and 2
 
