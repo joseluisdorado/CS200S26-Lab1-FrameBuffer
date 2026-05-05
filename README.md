@@ -4,20 +4,16 @@
 
 Topics
 
--Introduction to CS200 framework.
--Frame Buffer.
+- Introduction to CS200 framework.
+- Frame Buffer.
 
 Goals
 
 - Getting familiar with the CS200 framework.
 - Implement our own frame buffer class.
 
-```
 Grading:
-
-```
-There’s no grading for this lab.
-```
+- There’s no grading for this lab.
 
 ## Description
 
@@ -55,7 +51,8 @@ For example, calling the FrameBuffer Present function we would write:
 ```c
 FrameBuffer::Present();
 ```
-_Defining static class variables_
+
+## _Defining static class variables_
 
 Very much like static class member functions, static class member variables are similar to global variables,
 which follow the same access rules (private/public/protected) as regular classes. However, unlike regular
@@ -98,34 +95,32 @@ Implement the following function that will clear the frame buffer with a checker
 
 _Setup_
 
-```c
 Add the following declaration in the FrameBuffer class in FrameBuffer.h
-```
+
 ```c
 static void ClearCheckerboard(u32 colors[2], u32 size);
 ```
-```c
 Add the corresponding function definition in FrameBuffer.cpp
-```
+
 ```c
 void FrameBuffer::ClearCheckerboard(u32 colors[2], u32 size)
 ```
+
 _Parameters_
 
-```c
 The function takes 2 parameters:
-```
+
 ```c
 u32 colors[2]: the two colors to use in the checkerboard pattern.
-```
-```c
 u32 size: the size of each cell in the board.
 ```
+
 _Test yourself_
 
 To test your code, comment the previous call to clear and add the following lines in Level 1.cpp so that it
 looks like this:
 
+```c
 void Level_1_Render()
 {
 // Clear the frame buffer.
@@ -172,16 +167,15 @@ Add the corresponding function in FrameBuffer.cpp. Use this template as a starti
 ```c
 void FrameBuffer::LoadFromImageFile(const char* filename)
 {
-// load the file using the alpha engine
-u8* imgPixels = 0;
-u32 imgWidth = 0, imgHeight = 0;
-if (AEGfxLoadImagePNG(filename, imgPixels, imgWidth, imgHeight))
-{
-
-// TODO: copy the data to the framebuffer
-
-// TODO: cleanup
+  // load the file using the alpha engine
+  u8* imgPixels = 0;
+  u32 imgWidth = 0, imgHeight = 0;
+  if (AEGfxLoadImagePNG(filename, imgPixels, imgWidth, imgHeight))
+  {
+  // TODO: copy the data to the framebuffer
   
+  // cleanup
+  delete[] imgPixels;
 }
 }
 ```
