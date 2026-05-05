@@ -429,5 +429,7 @@ FodyWeavers.xsd
 *.msp
 
 # Alpha Engine
-!AECore/lib/
-!AECore/lib/Debug/*.lib
+!AECore/lib/**/
+
+# Keep all .lib files (any depth)
+!AECore/lib/**/*.lib
