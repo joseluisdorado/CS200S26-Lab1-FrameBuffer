@@ -429,4 +429,5 @@ FodyWeavers.xsd
 *.msp
 
 #Alpha Engine
+!AECore/lib/
 !AECore/lib/Debug/*.lib
