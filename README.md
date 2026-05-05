@@ -123,7 +123,8 @@ stores the frame buffer on an image:
 ```c
 FrameBuffer::SaveToImageFile("test.png"); 
 ```
-Code Challenge 2: Fill the frame buffer with a png image
+
+### Code Challenge 2: Fill the frame buffer with a png image
 
 _Description_
 
@@ -168,7 +169,7 @@ _Hints:_
 It is highly likely that the picture you load doesn’t have the same dimensions as the framebuffer. In this
 case, you have to be careful not to go out of bounds when copying the image pixels into the frame buffer.
 
-Code Challenge 3 : Combination of Challenge 1 and 2
+### Code Challenge 3 : Combination of Challenge 1 and 2
 
 Implement the following function to clear the frame buffer with an image in a checkerboard pattern.
 Since every other image needs to be different from the original, we will invert the image color.
