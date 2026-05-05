@@ -177,12 +177,11 @@ u8* imgPixels = 0;
 u32 imgWidth = 0, imgHeight = 0;
 if (AEGfxLoadImagePNG(filename, imgPixels, imgWidth, imgHeight))
 {
-// TODO: copy the data to the framebuffer
-```
 
-```c
-// cleanup
-delete[] imgPixels;
+// TODO: copy the data to the framebuffer
+
+// TODO: cleanup
+  
 }
 }
 ```
