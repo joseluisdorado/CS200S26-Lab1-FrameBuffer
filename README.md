@@ -87,7 +87,7 @@ have to convert to and from normalized color.
 When you are done with the basic functions for the framebuffer, try implementing the following code
 challenges:
 
-Code Challenge 1: Checkerboard pattern.
+### Code Challenge 1: Checkerboard pattern.
 
 _Description_
 
@@ -117,27 +117,11 @@ u32 size: the size of each cell in the board.
 
 _Test yourself_
 
-To test your code, comment the previous call to clear and add the following lines in Level 1.cpp so that it
-looks like this:
+To test your code, you can save an image of the frame buffer by using the function SaveToImageFile(), which 
+stores the frame buffer on an image: 
 
 ```c
-void Level_1_Render()
-{
-// Clear the frame buffer.
-//FrameBuffer::Clear(Rasterizer::Color().FromU32(0xFFFFFFFF));
-u32 colors[] = { 0xFFFFFFFF, 0xFF000000 };
-FrameBuffer::ClearCheckerboard(colors, 16);
-
-
-```c
-// Send content of frame buffer to
-FrameBuffer::Present();
-```
-
-```c
-// Debug
-SaveFrameBuffer();
-}
+FrameBuffer::SaveToImageFile("test.png"); 
 ```
 Code Challenge 2: Fill the frame buffer with a png image
 
