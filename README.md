@@ -47,7 +47,7 @@ Pure static classes behave very much like namespaces (with the exception of havi
 variables). The static functions are for all intents and purposes, _global_ functions and are called with the
 following syntax:
 
-```
+```c
 <class_name>::<function_name>([arguments]).
 ```
 For example, calling the FrameBuffer Present function we would write:
