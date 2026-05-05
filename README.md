@@ -4,34 +4,34 @@
 
 Topics
 
-```
- Introduction to CS200 framework.
- Frame Buffer.
-```
+-Introduction to CS200 framework.
+-Frame Buffer.
+
 Goals
 
-```
- Getting familiar with the CS200 framework.
- Implement our own frame buffer class.
+- Getting familiar with the CS200 framework.
+- Implement our own frame buffer class.
+
 ```
 Grading:
 
 ```
- There’s no grading for this lab.
+There’s no grading for this lab.
 ```
-Description
+
+## Description
 
 A Visual Studio project is provided for this assignment. Although there are a lot of files in the ‘src’ folder,
 all your work for this lab will be in FrameBuffer.cpp. We will be coding all the functions except for the
 Save/Load functions which are provided for you.
 
-The FrameBuffer class
+## The FrameBuffer class
 
 The frame buffer is essentially an interface around a 2D array of pixels in 32-bit RGBA format. It provides
 functions to allocate/free the pixel data as well as basic functionalities such as getting/setting a pixel at
 location x, y and _clearing_ the frame buffer, which means that we are setting a color to ALL its pixels.
 
-Static Class
+## Static Class
 
 Additionally, the FrameBuffer class is programmed as a _pure static class_. This can be seen by the keyword
 static prepending all member methods and variables of the class. Doing so means that there’s no _per-
@@ -41,7 +41,7 @@ This is an implementation of the SINGLETON programming pattern, which is used wh
 make a class unique in the code base. In our case, this is appropriate, because there can only be one
 frame buffer where we send the results of the draw calls.
 
-_Calling a static class functions_
+## _Calling a static class functions_
 
 Pure static classes behave very much like namespaces (with the exception of having private and public
 variables). The static functions are for all intents and purposes, _global_ functions and are called with the
@@ -57,7 +57,6 @@ FrameBuffer::Present();
 ```
 _Defining static class variables_
 
-
 Very much like static class member functions, static class member variables are similar to global variables,
 which follow the same access rules (private/public/protected) as regular classes. However, unlike regular
 classes, the static member variables must be _defined_ in a compiled file (i.e. a cpp file). This is why at the
@@ -70,7 +69,7 @@ u32 FrameBuffer::frameBufferHeight = 0;
 ```
 It’s good practice to initialize the variables to default values.
 
-The Present function
+## The Present function
 
 Another important function is Present(). This function is responsible of sending the contents of the frame
 buffer to the window. Normally, this process is done by calling a Win32 function, but in our case, we will
@@ -79,15 +78,14 @@ rely on the Alpha Engine to do so.
 Instead, we will create a temporary quad and texture to hold the pixels of the frame buffer and then draw
 it, applying a scale equal to the window dimensions.
 
-About the Colors
+## About the Colors
 
 You will see that the SetPixel and GetPixel functions interface with the Color class, declared in Color.h.
 This class stores the color component (RGBA) in normalized float format (in the range [0,1]). However,
 our frame buffer stores the pixel data as a 1 dimensional array of unsigned characters. In this case, we will
 have to convert to and from normalized color.
 
-
-Extra Challenges
+## Extra Challenges
 
 When you are done with the basic functions for the framebuffer, try implementing the following code
 challenges:
@@ -202,9 +200,8 @@ void FrameBuffer::CheckerboardImage(const char* filename, u32 size);
 
 The parameters are the same as the previous two functions:
 
-```
- Filename: path to the image file to load.
- Size : size of a square in the checkerboard.
-```
+- Filename: path to the image file to load.
+- Size : size of a square in the checkerboard.
+
 
 
